@@ -17,17 +17,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Counter()
+            var count by remember {
+                mutableStateOf(0)
+            }
+            Counter(count = count, onClick = { count += 1 })
         }
     }
 }
 
 @Composable
-fun Counter() {
+fun Counter(count: Int, onClick: () -> Unit) {
     val padding = 16.dp
-    var count by remember {
-        mutableStateOf(0)
-    }
 
     Column(
         verticalArrangement = Arrangement.Center,
@@ -43,9 +43,7 @@ fun Counter() {
             modifier = Modifier.padding(padding),
         )
         Button(
-            onClick = {
-                count += 1
-            },
+            onClick = onClick,
             modifier = Modifier.padding(padding),
         ) {
             Text(
@@ -58,5 +56,5 @@ fun Counter() {
 @Preview
 @Composable
 fun PreviewCounter() {
-    Counter()
+    Counter(count = 0, onClick = {})
 }
