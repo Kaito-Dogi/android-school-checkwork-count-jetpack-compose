@@ -10,7 +10,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -41,18 +40,13 @@ fun Counter() {
         Text(
             text = count.toString(),
             style = MaterialTheme.typography.h2,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth(),
-        )
-        Spacer(
-            modifier = Modifier
-                .padding(padding)
-                .fillMaxWidth(),
+            modifier = Modifier.padding(padding),
         )
         Button(
             onClick = {
                 count += 1
             },
+            modifier = Modifier.padding(padding),
         ) {
             Text(
                 text = "PLUS",
