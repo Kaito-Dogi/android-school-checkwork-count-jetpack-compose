@@ -8,6 +8,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -20,6 +21,10 @@ class MainActivity : AppCompatActivity() {
             var count by remember {
                 mutableStateOf(0)
             }
+//            // rememberSaveable：アクティビティまたはプロセスを再作成した後、UIの状態を復元できる。
+//            var count by rememberSaveable {
+//                mutableStateOf(0)
+//            }
             Counter(count = count, onClick = { count += 1 })
         }
     }
