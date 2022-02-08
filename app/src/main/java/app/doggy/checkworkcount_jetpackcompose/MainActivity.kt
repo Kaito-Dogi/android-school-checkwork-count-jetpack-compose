@@ -37,10 +37,11 @@ fun Counter(count: Int, onClick: () -> Unit) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
+        // 修飾子関数は前の関数が返すModifierを変更するので、関数の順序は最終結果に影響を与える。
+        // よって修飾子関数の順序は重要。
         modifier = Modifier
             .padding(padding)
-            .fillMaxWidth()
-            .fillMaxHeight(),
+            .fillMaxSize(),
     ) {
         Text(
             text = count.toString(),
